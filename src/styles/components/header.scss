@@ -1,0 +1,34 @@
+@import '../utils/utils.scss';
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+
+  &__categories, &__actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 200px;
+
+    @include tablets {
+      width: 150px;
+    }
+
+    @include phones {
+      width: 110px;
+    }
+  }
+  &__categories {
+    &__item {
+      @include button-text;
+    }
+  }
+  &__actions {
+    &__cart {
+      &__image {
+      }
+    }
+  }
+}

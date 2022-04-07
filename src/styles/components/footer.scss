@@ -1,0 +1,14 @@
+@import '../utils/utils.scss';
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  height: 80px;
+
+  &__text {
+    @include item-description;
+    text-align: center;
+  }
+}
