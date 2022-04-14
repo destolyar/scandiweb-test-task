@@ -5,3 +5,9 @@
   transition: 0.2s;
   cursor: pointer;
 }
+
+@mixin currency-hover {
+  cursor: pointer;
+  color: $button-text-secondary;
+  background-color: $button-text-active;
+}

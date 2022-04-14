@@ -17,4 +17,15 @@
 
 .cart, .item-page, .catalog {
   overflow: scroll;
+  flex: 1 0 auto;
+}
+
+#woman-category, #men-category, #kids-category {
+  display: none;
+}
+
+#woman-category:checked ~ #women-category-label, 
+#men-category:checked ~ #men-category-label, 
+#kids-category:checked ~ #kids-category-label{
+  color: green;
 }

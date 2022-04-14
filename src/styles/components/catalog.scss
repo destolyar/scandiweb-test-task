@@ -1,9 +1,6 @@
 @import '../utils/utils.scss';
 
 .catalog {
-  overflow: scroll;
-  flex: 1 0 auto;
-
   &__title {
     @include page-title;
   }

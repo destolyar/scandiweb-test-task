@@ -23,11 +23,39 @@
   &__categories {
     &__item {
       @include button-text;
+
+      &:hover {
+        @include default-hover;
+      }
     }
   }
   &__actions {
+    &__currency {
+      border: 0;
+    }
     &__cart {
+      position: relative;
+
+      &:hover {
+        @include default-hover;
+      }
       &__image {
+        width: 20px;
+        height: 20px;
+      }
+
+      &__amount {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        height: 20px;
+        top: -10px;
+        right: -10px;
+        border-radius: 50%;
+        background-color: $cart-amount-background;
+        color: $text-secondary;
       }
     }
   }
