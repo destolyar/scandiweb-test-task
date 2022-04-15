@@ -3,6 +3,7 @@ import '../../styles/components/catalog.scss'
 import { CatalogProps, CatalogState } from "../../entites/interfaces/components/catalog";
 import { CatalogItem } from './CatalogItem'
 import { getAllProducts } from "../../app/requests";
+import { Link } from "react-router-dom";
 
 
 export class Catalog extends React.Component<CatalogProps, CatalogState> {
