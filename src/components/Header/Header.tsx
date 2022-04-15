@@ -10,7 +10,7 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
   render() {
     return(
       <header className="header">
-        <Categories/>
+        <Categories category={this.props.category} setCategory={this.props.setCategory}/>
         <Link to="/">
           <img className="header__logo" src="./logo.png" alt="Store logo" />
         </Link>

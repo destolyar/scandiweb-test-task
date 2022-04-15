@@ -20,15 +20,27 @@
       width: 110px;
     }
   }
+  
   &__categories {
-    &__item {
-      @include button-text;
+    &__item-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-      &:hover {
-        @include default-hover;
+      &__label {
+        @include button-text;
+        padding: 30px;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      &__input {
+        display: none;
       }
     }
   }
+  
   &__actions {
     &__currency {
       border: 0;

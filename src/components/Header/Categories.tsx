@@ -1,17 +1,34 @@
+import { gql } from "@apollo/client";
 import React from "react";
+import { client } from "../../app/apolloClient";
+import { CategoriesProps, CategoriesState } from "../../entites/interfaces/components/categories";
+import { CategoriesItem } from "./CategoriesItem";
 
-export class Categories extends React.Component {
+export class Categories extends React.Component<CategoriesProps, CategoriesState> {
+  state = {
+    categories: []
+  }
+
+  componentDidMount() {
+    client.query({
+      query: gql`
+        query getCategories {
+          categories {
+            name
+          }
+        }
+      `
+    }).then(i => {
+      this.setState({categories: i.data.categories})
+    })
+   }
+   
   render() {
     return(
       <div className="header__categories">
-        <input name="category" type="radio" id="woman-category"/>
-        <label className="header__categories__item" htmlFor="woman-category" id="women-category-label" defaultChecked>Women</label>
-
-        <input name="category" type="radio" id="men-category"/>
-        <label className="header__categories__item" htmlFor="men-category" id="men-category-label">Men</label>
-
-        <input name="category" type="radio" id="kids-category"/>
-        <label className="header__categories__item" htmlFor="kids-category" id="kids-category-label">Kids</label>
+        {this.state.categories.map((i: {name: string}) => {
+          return <CategoriesItem key={i.name} category={i.name} setCategory={this.props.setCategory}/>
+        })}
       </div>
     )
   }

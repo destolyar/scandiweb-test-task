@@ -1,7 +1,9 @@
 @import '../utils/utils.scss';
 
 .catalog {
+  padding: 100px 0;
   &__title {
+    margin-bottom: 120px;
     @include page-title;
   }
 }
