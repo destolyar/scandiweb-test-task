@@ -6,4 +6,36 @@
     margin-bottom: 120px;
     @include page-title;
   }
+
+  &__products {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    @include desktop {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @include tablets {
+      grid-template-columns: 1fr;
+    }
+
+    &__catalog-card {
+      min-height: 390px;
+      min-width: 310px;
+      margin: auto;
+      margin-bottom: 120px;
+
+      &__image {
+        height: 300px;
+      }
+
+      &__title {
+        @include card-title;
+      }
+
+      &__price {
+        @include card-price;
+      }
+    }
+  }
 }

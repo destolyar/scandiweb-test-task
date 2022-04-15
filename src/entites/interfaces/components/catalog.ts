@@ -1,4 +1,4 @@
-export interface CatalogItemProps {
+export interface CatalogProps {
   category: string,
   currency: {
     label: string,
@@ -6,6 +6,6 @@ export interface CatalogItemProps {
   }
 }
 
-export interface CatalogItemState {
+export interface CatalogState {
   allProducts: any
 }

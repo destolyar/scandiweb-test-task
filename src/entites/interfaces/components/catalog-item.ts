@@ -1,11 +1,15 @@
-export interface CatalogProps {
-  category: string,
-  currency: {
-    label: string,
-    symbol: string
-  }
+export interface CatalogItemProps {
+    inStock?: boolean,
+    name: string,
+    currency: {
+      label: string,
+      symbol: string
+    },
+    gallery: string
+    amount: string
 }
 
-export interface CatalogState {
+
+export interface CatalogItemState {
   allProducts: any
 }
