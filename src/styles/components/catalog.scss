@@ -15,26 +15,56 @@
       grid-template-columns: 1fr 1fr;
     }
 
-    @include tablets {
+    @include laptop {
       grid-template-columns: 1fr;
     }
-
-    &__catalog-card {
-      min-height: 390px;
-      min-width: 310px;
-      margin: auto;
+    
+    &__catalog-card-container {
+      align-self: center;
+      justify-self: center;
+      width: 390px;
+      height: 440px;
+      padding: 20px;
       margin-bottom: 120px;
+      background-color: $catalog-card-background;
 
-      &__image {
-        height: 300px;
+      &:hover {
+        @include default-hover;
+        filter: drop-shadow(0px 4px 35px rgba(168, 172, 176, 0.19));
       }
+      
+      &__card {
+        &__image-container {
+          position: relative;
+          width: 354px;
+          height: 330px;
+          margin-bottom: 20px;
 
-      &__title {
-        @include card-title;
-      }
+          &__out-of-stock {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @include card-out-of-stock-text;
+            background-color: rgba($color: $catalog-card-background, $alpha: .6);
+          }
 
-      &__price {
-        @include card-price;
+          &__image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+
+        &__title {
+          @include card-title;
+        }
+
+        &__price {
+          @include card-price;
+        }
       }
     }
   }

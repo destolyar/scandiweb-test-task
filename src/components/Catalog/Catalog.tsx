@@ -28,7 +28,7 @@ export class Catalog extends React.Component<CatalogProps, CatalogState> {
             return i.products.map((i: any) => {
               return <CatalogItem 
               name={i.name} 
-              gallery={i.gallery}
+              gallery={i.gallery[0]}
               currency={{
                 label: this.props.currency.label,
                 symbol: this.props.currency.symbol
