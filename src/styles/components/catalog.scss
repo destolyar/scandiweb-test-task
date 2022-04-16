@@ -20,6 +20,7 @@
     }
     
     &__catalog-card-container {
+      position: relative;
       align-self: center;
       justify-self: center;
       width: 390px;
@@ -31,6 +32,29 @@
       &:hover {
         @include default-hover;
         filter: drop-shadow(0px 4px 35px rgba(168, 172, 176, 0.19));
+      }
+
+      &:hover &__cart{
+        visibility: visible;
+      }
+
+      &__cart {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        bottom: 65px;
+        right: 30px;
+        visibility: hidden;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: $catalog-card-cart-button-background;
+        z-index: 1;
+
+        &:hover {
+          @include default-hover;
+        }
       }
       
       &__card {

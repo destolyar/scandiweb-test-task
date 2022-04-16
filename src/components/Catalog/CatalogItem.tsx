@@ -5,6 +5,9 @@ export class CatalogItem extends React.Component<CatalogItemProps, CatalogItemSt
   render() {
     return(
       <div className="catalog__products__catalog-card-container">
+        <div className="catalog__products__catalog-card-container__cart">
+          <img src="./cart.png" alt="" />
+        </div>
         <div className="catalog__products__catalog-card-container__card">
           <div className="catalog__products__catalog-card-container__card__image-container">
             <div className="catalog__products__catalog-card-container__card__image-container__out-of-stock" 
