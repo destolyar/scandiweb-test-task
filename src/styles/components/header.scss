@@ -30,6 +30,7 @@
       &__label {
         @include button-text;
         padding: 30px;
+        
         &:hover {
           cursor: pointer;
         }

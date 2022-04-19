@@ -1,3 +1,5 @@
+import { Category } from "../data/products"
+
 export interface CatalogProps {
   category: string,
   currency: {
@@ -7,5 +9,5 @@ export interface CatalogProps {
 }
 
 export interface CatalogState {
-  allProducts: any
+  allProducts: Category[]
 }

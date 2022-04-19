@@ -53,7 +53,7 @@
         z-index: 1;
 
         &:hover {
-          @include default-hover;
+          @include cart-hover;
         }
       }
       

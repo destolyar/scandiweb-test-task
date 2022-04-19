@@ -1,5 +1,5 @@
 import React from "react";
-import '../styles/components/error.scss'
+import '../../../styles/components/error.scss'
 
 export class ErrorLink extends React.Component {
   render() {

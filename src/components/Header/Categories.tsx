@@ -1,6 +1,5 @@
-import { gql } from "@apollo/client";
 import React from "react";
-import { client } from "../../app/apolloClient";
+import { getCategories } from "../../app/requests";
 import { CategoriesProps, CategoriesState } from "../../entites/interfaces/components/categories";
 import { CategoriesItem } from "./CategoriesItem";
 
@@ -10,15 +9,7 @@ export class Categories extends React.Component<CategoriesProps, CategoriesState
   }
 
   componentDidMount() {
-    client.query({
-      query: gql`
-        query getCategories {
-          categories {
-            name
-          }
-        }
-      `
-    }).then(i => {
+    getCategories().then(i => {
       this.setState({categories: i.data.categories})
     })
    }

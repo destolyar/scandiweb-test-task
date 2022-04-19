@@ -46,3 +46,27 @@ export const getAllProducts = () => {
     `
   })
 }
+
+export const getCategories = () => {
+  return client.query({
+    query: gql`
+      query getCategories {
+        categories {
+          name
+        }
+      }
+    `
+  })
+}
+
+export const getProductById = (id: string) => {
+  return client.query({
+    query: gql`
+      query getProductById {
+        product(id: "${id}") {
+          name
+        }
+      }
+    `
+  })
+}

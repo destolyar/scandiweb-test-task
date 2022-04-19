@@ -1,14 +1,28 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { withRouter } from "react-router-dom";
+import { getProductById } from "../../app/requests";
 
-export class ItemPage extends React.Component {
+
+class ItemPage extends React.Component<any, any> {
+  state: Readonly<any> = {
+    name: ''
+  };
+
+  componentDidMount() {
+    const id = this.props.match.params.id
+    getProductById(id).then(i => {
+      this.setState({name: i.data.product.name})
+    })
+  }
+
   render() {
     return(
       <main className="item-page">
-        <h1>Item Page</h1>
-        <Outlet />
-      </main>
-      
+        <h1>{this.state.name}</h1>
+      </main> 
     )
   }
 }
+
+
+export default withRouter(ItemPage)
