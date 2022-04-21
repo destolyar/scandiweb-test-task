@@ -7,7 +7,8 @@ export interface ProductInfo {
   description: string,
   category: string,
   brand: string,
-  prices: CurrencyInfo[]
+  prices: CurrencyInfo[],
+  attributes: attribute[]
 }
 
 export interface CurrencyInfo {
@@ -26,4 +27,15 @@ export interface Category {
 
 export interface Categories {
   categories: Category[]
+}
+
+export interface attribute {
+  name: string,
+  type: string,
+  items: attributeItem[]
+}
+
+export interface attributeItem {
+  displayValue: string,
+  value: string
 }

@@ -1,0 +1,62 @@
+@import '../utils/utils.scss';
+
+.item-page {
+  display: flex;
+  padding: 80px 0;
+
+  &__gallery {
+    height: 600px;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__item {
+      width: 80px;
+      margin-bottom: 30px;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+  
+  &__image {
+    height: 600px;
+    object-fit: cover;
+  }
+
+  &__info {
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &__brand {
+      @include item-bold-title;
+    }
+
+    &__name {
+      @include item-title;
+    }
+
+    &__attributes {
+      &__items {
+        display: flex;
+
+        &__item {
+          width: 65px;
+          height: 45px;
+          margin-right: 5px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border: 1px solid #1D1F22;
+        }
+      }
+    }
+
+    &__description {
+      @include item-description;
+    }
+  }
+}
