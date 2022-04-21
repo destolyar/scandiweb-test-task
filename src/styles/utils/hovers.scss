@@ -5,3 +5,16 @@
   transition: 0.2s;
   cursor: pointer;
 }
+
+@mixin currency-hover {
+  cursor: pointer;
+  transition: 0.2s;
+  color: $button-text-secondary;
+  background-color: $button-text-active;
+}
+
+@mixin cart-hover {
+  cursor: pointer;
+  transition: 0.2s;
+  transform: scale(1.4);
+}

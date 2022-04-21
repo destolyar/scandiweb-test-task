@@ -1,5 +1,6 @@
 @import './adaptive.scss';
 @import './colors.scss';
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;700&display=swap');
 
 @mixin page-title {
   font-family: "Roboto";
@@ -105,6 +106,7 @@
 
 @mixin card-title {
   font-family: "Raleway";
+  font-style: "Light";
   font-size: 18px;
   font-weight: 300;
   line-height: 29px;
@@ -120,17 +122,25 @@
 
 @mixin card-price {
   font-family: "Raleway";
+  font-style: "Medium";
   font-size: 18px;
   font-weight: 500;
   line-height: 29px;
   letter-spacing: 0em;
-  text-align: right;
-
+  text-align: left;
   color: $text-primary;
 
   @include phones {
     font-size: 14px;
   }
+}
+
+@mixin card-out-of-stock-text {
+  font-family: 'Raleway';
+  font-style: 'Regular';
+  font-weight: 400;
+  font-size: 24px;
+  color: $out-of-text-color;
 }
 
 @mixin button-text {

@@ -1,0 +1,54 @@
+@import '../utils/utils.scss';
+
+.currency-dropdown {
+  display: flex;
+
+  &__symbol {
+    width: 30px;
+    @include item-property-title;
+    margin-right: 10px;
+  }
+  
+  &__container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    &__checkbox {
+      transform: rotate(90deg);
+  
+      &:hover {
+        @include default-hover;
+        transform: rotate(90deg);
+      }
+    }
+
+    &__currencies {
+      top: 30px;
+      left: -55px;
+      opacity: 0;
+      position: absolute;
+      z-index: 100;
+      overflow: hidden;
+      min-width: 110px;
+      background-color: #FFFFFF;
+      filter: drop-shadow(0px 4px 35px rgba(168, 172, 176, 0.19));
+      transition: 0.5s;
+
+      &__item {
+        display: flex;
+        align-items: center;
+        padding: 20px;
+        @include item-property-title;
+
+        &:hover {
+          @include currency-hover;
+        }
+      }
+    }
+  }
+}
+
+#currencies-checkbox:checked ~ #currency-container {
+  opacity: 1;
+}

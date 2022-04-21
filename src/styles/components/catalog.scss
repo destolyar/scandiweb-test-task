@@ -1,10 +1,95 @@
 @import '../utils/utils.scss';
 
 .catalog {
-  overflow: scroll;
-  flex: 1 0 auto;
-
+  padding: 100px 0;
   &__title {
+    margin-bottom: 120px;
     @include page-title;
+  }
+
+  &__products {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    @include desktop {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @include laptop {
+      grid-template-columns: 1fr;
+    }
+    
+    &__catalog-card-container {
+      position: relative;
+      align-self: center;
+      justify-self: center;
+      width: 390px;
+      height: 440px;
+      padding: 20px;
+      margin-bottom: 120px;
+      background-color: $catalog-card-background;
+
+      &:hover {
+        @include default-hover;
+        filter: drop-shadow(0px 4px 35px rgba(168, 172, 176, 0.19));
+      }
+
+      &:hover &__cart{
+        visibility: visible;
+      }
+
+      &__cart {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        bottom: 65px;
+        right: 30px;
+        visibility: hidden;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: $catalog-card-cart-button-background;
+        z-index: 1;
+
+        &:hover {
+          @include cart-hover;
+        }
+      }
+      
+      &__card {
+        &__image-container {
+          position: relative;
+          width: 354px;
+          height: 330px;
+          margin-bottom: 20px;
+
+          &__out-of-stock {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @include card-out-of-stock-text;
+            background-color: rgba($color: $catalog-card-background, $alpha: .6);
+          }
+
+          &__image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+
+        &__title {
+          @include card-title;
+        }
+
+        &__price {
+          @include card-price;
+        }
+      }
+    }
   }
 }
