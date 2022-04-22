@@ -7,7 +7,7 @@ export class Attributes extends React.Component<AttributesProps, AttributesState
       <div className="item-page__info__attributes">
         <h2 className="item-page__info__attributes__name">{this.props.attributes.name}</h2>
         <div className="item-page__info__attributes__items">{this.props.attributes.items.map((i) => 
-          <div className="item-page__info__attributes__items__item">{i.value}</div>)}</div>
+          <div className="item-page__info__attributes__items__item" key={i.value}>{i.value}</div>)}</div>
       </div>
     )
   }

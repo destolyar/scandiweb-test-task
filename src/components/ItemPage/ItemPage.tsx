@@ -80,19 +80,25 @@ class ItemPage extends React.Component<ItemPageProps & RouteComponentProps<any>,
   render() {
     return(
       <main className="item-page">
-        <div className="item-page__gallery">
-          {this.state.product.gallery.map((image: string) => 
-          <img key={image} className="item-page__gallery__item" src={image} 
-          onClick={() => this.setState({currentImage: image})}/>)}
+        <div className="item-page__images">
+          <div className="item-page__images__gallery">
+            {this.state.product.gallery.map((image: string) => 
+            <img key={image} className="item-page__images__gallery__item" src={image} 
+            onClick={() => this.setState({currentImage: image})}/>)}
+          </div>
+          <img className="item-page__images__image" src={this.state.currentImage}/>
         </div>
-        <img className="item-page__image" src={this.state.currentImage}/>
         <div className="item-page__info">
-          <h2 className="item-page__info__brand">{this.state.product.brand}</h2>
-          <h2 className="item-page__info__name">{this.state.product.name}</h2>
-          {(this.state.product.attributes.length === 0) ? 'Only one exemplar.' : this.state.product.attributes.map((i) => <Attributes attributes={i}/>)}
+        <div className="item-page__info__title">
+          <h2 className="item-page__info__title__brand">{this.state.product.brand}</h2>
+          <h2 className="item-page__info__title__name">{this.state.product.name}</h2>
+        </div>
+          {(this.state.product.attributes.length === 0) ? <p className="item-page__info__attributes__name">Only one exemplar.</p> : this.state.product.attributes.map((i) => <Attributes attributes={i}/>)}
           
           <h3 className="item-page__info__price-title">Price: {this.state.price.currency.symbol + '' + 
           Math.trunc(+this.state.price.amount)}</h3>
+
+          <button className="item-page__info__add-to-cart">Add to cart</button>
           
           <h3 className="item-page__info__price">{this.props.match.params.currency}</h3>
           <div className="item-page__info__description" 

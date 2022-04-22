@@ -26,11 +26,11 @@ export class CurrencyDropdown extends React.Component<CurrencyDropdownProps, Cur
 
   static contextType = CurrencyContext
   render() {
-    const {changeCurrency} = this.context
+    const {changeCurrency, currency} = this.context
     return(
       <div className="currency-dropdown">
         <div className="currency-dropdown__symbol">
-          {this.props.currency.symbol}
+          {currency.symbol}
         </div>
 
         <div className="currency-dropdown__container">

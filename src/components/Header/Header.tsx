@@ -15,7 +15,7 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
           <img className="header__logo" src="./logo.png" alt="Store logo" />
         </Link>
         <div className="header__actions">
-          <CurrencyDropdown currency={this.props.currency} setCurrency={this.props.setCurrency}/>
+          <CurrencyDropdown />
           <Link to='/cart'>
             <CartLink/>
           </Link>

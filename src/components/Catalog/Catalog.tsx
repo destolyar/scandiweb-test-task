@@ -4,6 +4,7 @@ import { CatalogProps, CatalogState } from "../../entites/interfaces/components/
 import CatalogItem from './CatalogItem'
 import { getAllProducts } from "../../app/requests";
 import { Category, CurrencyInfo, ProductInfo } from "../../entites/interfaces/data/products";
+import { CurrencyContext } from "../../context/CurrencyContext";
 
 
 export class Catalog extends React.Component<CatalogProps, CatalogState> {
@@ -17,7 +18,10 @@ export class Catalog extends React.Component<CatalogProps, CatalogState> {
     })
   }
 
+  static contextType = CurrencyContext
+  
   render() {
+    const {currency} = this.context
     return(
       <main className="catalog">
         <h1 className="catalog__title">Category: {this.props.category}</h1>
@@ -31,10 +35,10 @@ export class Catalog extends React.Component<CatalogProps, CatalogState> {
               name={product.name} 
               gallery={product.gallery}
               currency={{
-                label: this.props.currency.label,
-                symbol: this.props.currency.symbol
+                label: currency.label,
+                symbol: currency.symbol
               }}
-              amount={product.prices.filter((i: CurrencyInfo) => i.currency.label === this.props.currency.label)[0].amount}
+              amount={product.prices.filter((i: CurrencyInfo) => i.currency.label === currency.label)[0].amount}
               ></CatalogItem>
             })
           }})}

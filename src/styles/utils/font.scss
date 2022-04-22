@@ -89,6 +89,22 @@
   }
 }
 
+@mixin item-attributes-title {
+  font-family: "Raleway";
+  font-style: "Medium";
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: left;
+
+  color: $text-primary;
+
+  @include phones {
+    font-size: 16px;
+  }
+}
+
 @mixin item-description {
   font-family: "Raleway";
   font-style: "Medium";
