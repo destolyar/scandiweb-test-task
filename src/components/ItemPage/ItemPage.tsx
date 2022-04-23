@@ -5,7 +5,8 @@ import { getProductById } from "../../app/requests"
 import { ItemPageProps, ItemPageState } from "../../entites/interfaces/components/item-page"
 import { CurrencyContext } from "../../context/CurrencyContext"
 import { Attributes } from "./Attributes"
-
+import { AttributesState } from "../../entites/interfaces/components/attributes"
+import { AddProductButton } from "./AddProductButton"
 
 
 class ItemPage extends React.Component<ItemPageProps & RouteComponentProps<any>, ItemPageState> {
@@ -29,18 +30,16 @@ class ItemPage extends React.Component<ItemPageProps & RouteComponentProps<any>,
         label: '',
         symbol: ''
       }
-    }
+    },
+    pickedAttributes: []
   }
 
   static contextType = CurrencyContext
-
+  
   componentDidMount() {
     getProductById(this.props.match.params.id).then(i => {
       const {currency} = this.context
-      const price = i.data.product.prices.filter((i: {currency: {label: string}}) => 
-      i.currency.label === currency.label)[0]
-
-      console.log(i.data.product)
+      const price = i.data.product.prices.filter((i: {currency: {label: string}}) => i.currency.label === currency.label)[0]
 
       this.setState({
         product: i.data.product,
@@ -54,7 +53,6 @@ class ItemPage extends React.Component<ItemPageProps & RouteComponentProps<any>,
         }
       })
     })
-
   }
 
   componentDidUpdate() {
@@ -76,8 +74,20 @@ class ItemPage extends React.Component<ItemPageProps & RouteComponentProps<any>,
       }
     })
   }
-
+  
   render() {
+    const setAttribute = (attribute: AttributesState, isFirstSet=false) => {
+      if(isFirstSet) {
+        this.setState((state) => ({
+          pickedAttributes: [...state.pickedAttributes, attribute]
+        }))
+      } else {
+        this.setState((state) => ({
+          pickedAttributes: [...state.pickedAttributes.filter((item) => item.name !== attribute.name), attribute]
+        }))
+      }
+    }
+
     return(
       <main className="item-page">
         <div className="item-page__images">
@@ -93,14 +103,14 @@ class ItemPage extends React.Component<ItemPageProps & RouteComponentProps<any>,
           <h2 className="item-page__info__title__brand">{this.state.product.brand}</h2>
           <h2 className="item-page__info__title__name">{this.state.product.name}</h2>
         </div>
-          {(this.state.product.attributes.length === 0) ? <p className="item-page__info__attributes__name">Only one exemplar.</p> : this.state.product.attributes.map((i) => <Attributes attributes={i}/>)}
+          {(this.state.product.attributes.length === 0) ? <p className="item-page__info__attributes__name">Only one exemplar.</p> : this.state.product.attributes.map((i) => <Attributes key={i.name} attributes={i} setAttribute={setAttribute}/>)}
           
-          <h3 className="item-page__info__price-title">Price: {this.state.price.currency.symbol + '' + 
+          <h3 className="item-page__info__price">Price: {this.state.price.currency.symbol + '' + 
           Math.trunc(+this.state.price.amount)}</h3>
-
-          <button className="item-page__info__add-to-cart">Add to cart</button>
-          
-          <h3 className="item-page__info__price">{this.props.match.params.currency}</h3>
+          <AddProductButton productInfo={{
+            name: this.state.product.name,
+            attributes: this.state.pickedAttributes
+          }}/>
           <div className="item-page__info__description" 
           dangerouslySetInnerHTML={{__html: this.state.product.description}}></div>
         </div>

@@ -71,19 +71,28 @@
       }
       &__items {
         display: flex;
+        flex-wrap: wrap;
 
-        &__item {
-          width: 65px;
-          height: 45px;
-          margin-right: 5px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border: 1px solid #1D1F22;
+        &__item-container {
+          &__item {
+            width: 65px;
+            height: 45px;
+            margin-right: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $button-text-primary;
+            border: 1px solid #1D1F22;
 
-          &:hover {
-            @include default-hover;
-          } 
+            &:hover {
+              @include default-hover;
+            }
+          }
+        }
+
+        &__item-container input[type="radio"]:checked + label {
+          color: $button-text-secondary;
+          background-color: #1D1F22;
         }
       }
     }

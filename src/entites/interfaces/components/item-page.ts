@@ -1,4 +1,5 @@
 import { ProductInfo } from "../data/products"
+import { AttributesState } from "./attributes"
 
 export interface ItemPageProps {
   
@@ -14,4 +15,5 @@ export interface ItemPageState {
       symbol: string
     }
   }
+  pickedAttributes: AttributesState[]
 }
