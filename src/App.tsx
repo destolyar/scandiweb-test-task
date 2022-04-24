@@ -11,10 +11,6 @@ import { AppProps, AppState } from "./entites/interfaces/components/app";
 
 export class App extends React.Component<AppProps, AppState> {
   state = {
-    currency: {
-      label: "USD",
-      symbol: "$"
-    },
     category: "all"
   }
 
@@ -22,15 +18,6 @@ export class App extends React.Component<AppProps, AppState> {
     return (
       <div className="App">
         <Header
-          currency={this.state.currency} 
-          setCurrency={(symbol:string, label: string) => {
-            this.setState({
-              currency: {
-                symbol: symbol,
-                label: label
-              }
-            })
-          }}
           category={this.state.category}
           setCategory={(category: string) => {
             this.setState({
@@ -40,7 +27,7 @@ export class App extends React.Component<AppProps, AppState> {
         />
         <Switch>
           <Route exact path="/">
-            <Catalog currency={this.state.currency} category={this.state.category}/>
+            <Catalog category={this.state.category}/>
           </Route>
           <Route path="/cart" component={Cart}/>
           <Route path="/product/:id">

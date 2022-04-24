@@ -1,0 +1,122 @@
+@import '../utils/utils.scss';
+
+.item-page {
+  display: flex;
+  justify-content: space-between;
+  padding: 80px 0;
+
+  @include desktop {
+    flex-direction: column;
+  }
+
+  &__images {
+    height: 600px;
+    display: flex;
+    justify-content: space-between;
+    &__gallery {
+      overflow: scroll;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-right: 80px;
+  
+      &__item {
+        width: 80px;
+        margin-bottom: 30px;
+  
+        &:hover {
+          @include default-hover;
+        } 
+      }
+    }
+    
+    &__image {
+      max-height: 550px;
+      width: 500px;
+      object-fit: cover;
+
+      @include desktop {
+        width: 100%;
+      }
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 550px;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+
+    &__title {
+      margin-bottom: 30px;
+      &__brand {
+        @include item-bold-title;
+        margin-bottom: 10px
+      }
+  
+      &__name {
+        @include item-title;
+      }
+    }
+
+    &__attributes {
+      margin-bottom: 30px;
+
+      &__name {
+        @include item-attributes-title;
+        margin-bottom: 10px;
+      }
+      &__items {
+        display: flex;
+        flex-wrap: wrap;
+
+        &__item-container {
+          &__item {
+            width: 65px;
+            height: 45px;
+            margin-right: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $button-text-primary;
+            border: 1px solid #1D1F22;
+
+            &:hover {
+              @include default-hover;
+            }
+          }
+        }
+
+        &__item-container input[type="radio"]:checked + label {
+          color: $button-text-secondary;
+          background-color: #1D1F22;
+        }
+      }
+    }
+
+    &__add-to-cart {
+      @include add-to-cart-button;
+      margin-bottom: 30px;
+
+      &:hover {
+        @include default-hover;
+      } 
+    }
+
+    &__price {
+      @include item-price;
+      margin-bottom: 30px;
+    }
+
+    &__description {
+      @include item-description;
+    }
+
+    &__description > * {
+      margin-bottom: 15px;
+    }
+  }
+}

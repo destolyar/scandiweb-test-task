@@ -65,6 +65,26 @@ export const getProductById = (id: string) => {
       query getProductById {
         product(id: "${id}") {
           name
+          inStock
+          gallery
+          description
+          category
+          brand
+          attributes {
+            name
+            type
+            items {
+              displayValue
+              value
+            }
+          }
+          prices {
+            currency{
+              label
+              symbol
+            }
+            amount
+          }
         }
       }
     `
