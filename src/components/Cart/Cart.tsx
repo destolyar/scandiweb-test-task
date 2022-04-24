@@ -6,9 +6,7 @@ export class Cart extends React.Component {
   render() {
     const {cartProducts} = this.context
     return(
-      <main className="cart" onClick={() => {
-        console.log(cartProducts)
-      }}>SHOW ALL PICKED PRODUCTS</main>
+      <main className="cart">{cartProducts.map((i: {name: string}) => <div>{i.name}</div>)}</main>
     )
   }
 }

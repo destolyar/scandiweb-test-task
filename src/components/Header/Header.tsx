@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import '../../styles/components/header.scss';
-import { CartLink } from "./CartLink";
+import { CartPreview } from "./CartPreview";
 import { Categories } from "./Categories";
 import { CurrencyDropdown } from "./CurrencyDropdown";
 import { HeaderProps, HeaderState } from "../../entites/interfaces/components/header";
@@ -16,9 +16,7 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
         </Link>
         <div className="header__actions">
           <CurrencyDropdown />
-          <Link to='/cart'>
-            <CartLink/>
-          </Link>
+          <CartPreview/>
         </div>
       </header>
     )

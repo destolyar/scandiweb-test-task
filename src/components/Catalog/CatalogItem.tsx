@@ -1,9 +1,11 @@
 import React from "react";
 import { RouteComponentProps, withRouter } from "react-router";
+import { CartContext } from "../../context/CartContext";
 import { CatalogItemProps, CatalogItemState } from "../../entites/interfaces/components/catalog-item";
 
 
 class CatalogItem extends React.Component<CatalogItemProps & RouteComponentProps<any>, CatalogItemState> {
+  static contextType = CartContext
   render() {
     return(
       <div className="catalog__products__catalog-card-container">

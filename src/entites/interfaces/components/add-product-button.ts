@@ -1,9 +1,14 @@
+import { attribute, CurrencyInfo } from "../data/products"
 import { AttributesState } from "./attributes"
 
 export interface AddProductButtonProps {
   productInfo: {
     name: string,
-    attributes: AttributesState[]
+    brand: string,
+    prices: CurrencyInfo[],
+    attributes: attribute[],
+    pickedAttributes: AttributesState[]
+    gallery: string[]
   }
 }
 

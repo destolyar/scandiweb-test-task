@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { firstLetterToUpperCase } from "../../app/utils";
 import { CategoriesItemProps, CategoriesItemState } from "../../entites/interfaces/components/categories-item";
 
 export class CategoriesItem extends React.Component<CategoriesItemProps, CategoriesItemState> {
@@ -12,7 +12,7 @@ export class CategoriesItem extends React.Component<CategoriesItemProps, Categor
           />
             <label className="header__categories__item-container__label" 
             htmlFor={this.props.category + "-category"}
-            >{this.props.category}</label>
+            >{firstLetterToUpperCase(this.props.category)}</label>
         </div>
     )
   }

@@ -109,7 +109,11 @@ class ItemPage extends React.Component<ItemPageProps & RouteComponentProps<any>,
           Math.trunc(+this.state.price.amount)}</h3>
           <AddProductButton productInfo={{
             name: this.state.product.name,
-            attributes: this.state.pickedAttributes
+            brand: this.state.product.brand,
+            prices: this.state.product.prices,
+            attributes: this.state.product.attributes,
+            pickedAttributes: this.state.pickedAttributes,
+            gallery: this.state.product.gallery
           }}/>
           <div className="item-page__info__description" 
           dangerouslySetInnerHTML={{__html: this.state.product.description}}></div>
