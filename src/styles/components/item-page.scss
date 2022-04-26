@@ -91,7 +91,9 @@
         }
 
         &__item-container input[type="radio"]:checked + label {
+          box-sizing: content-box;
           color: $button-text-secondary;
+          border: 1px solid black;
           background-color: #1D1F22;
         }
       }

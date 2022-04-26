@@ -14,9 +14,14 @@ export class CartProvider extends React.Component<any, any> {
   }
 
   appendProduct(product: any) {
-    this.setState((state: any) => ({
-      cartProducts: [...state.cartProducts, product]
-    }))
+    const repeatedProducts = this.state.cartProducts.filter((i: {name: string}) => {
+      return i.name === product.name
+    })
+    if(repeatedProducts.length === 0) {
+      this.setState({
+        cartProducts: [...this.state.cartProducts, (Object.assign(product, {amount: 1}))]
+      }) 
+    }
   }
   
   render() {
