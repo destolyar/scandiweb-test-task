@@ -10,8 +10,7 @@ export interface CartItemProps {
     pickedAttributes: AttributesState[],
     prices: CurrencyInfo[],
     gallery: string[]
-  },
-  changeTotalCost: (amount: number) => void
+  }
 }
 
 export interface CartItemState {

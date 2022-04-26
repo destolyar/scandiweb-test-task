@@ -2,6 +2,7 @@ import React from "react";
 import { CurrencyContext } from "../../context/CurrencyContext";
 import { CartItemProps, CartItemState } from "../../entites/interfaces/components/cart-item";
 import '../../styles/components/cart-item.scss';
+import { CartItemAmount } from "./CartItemAmount";
 
 export class CartItem extends React.Component<CartItemProps, CartItemState> {
   state = {
@@ -13,7 +14,8 @@ export class CartItem extends React.Component<CartItemProps, CartItemState> {
       }
     }
   }
-
+  
+  //Setting current currency
   componentDidMount() {
     const {currency} = this.context
     const price = this.props.product.prices.filter((i: {currency: {label: string}}) => i.currency.label === currency.label)[0]
@@ -24,8 +26,21 @@ export class CartItem extends React.Component<CartItemProps, CartItemState> {
         currency: price.currency
       }
     })
+  }
 
-    this.props.changeTotalCost(+price.amount * this.props.product.amount)
+  //Comparing current currency with currency in component state and re-render if they are not equal. 
+  componentDidUpdate() {
+    const {currency} = this.context
+    if(currency.label !== this.state.price.currency.label) {
+      const price = this.props.product.prices.filter((i: {currency: {label: string}}) => i.currency.label === currency.label)[0]
+    
+      this.setState({
+        price: {
+          amount: Math.trunc(+price.amount).toString(),
+          currency: price.currency
+        }
+      })
+    }
   }
 
   static contextType = CurrencyContext
@@ -34,17 +49,15 @@ export class CartItem extends React.Component<CartItemProps, CartItemState> {
     return(
       <div className="cart-item">
         <div className="cart-item__info">
-          <h3>{this.props.product.brand}</h3>
-          <h3>{this.props.product.name}</h3>
-          <h3>{this.state.price.currency.symbol + '' + this.state.price.amount}</h3>
-          <div></div>
+          <h3 className="cart-item__info__brand">{this.props.product.brand}</h3>
+          <h3 className="cart-item__info__name">{this.props.product.name}</h3>
+          <h3 className="cart-item__info__price">{this.state.price.currency.symbol + '' + this.state.price.amount}</h3>
+          <div className="cart-item__info__attributes">
+
+          </div>
         </div>
         <div className="cart-item__preview">
-          <div className="cart-item__preview__amount">
-            <div>+</div>
-            {this.props.product.amount}
-            <div>-</div>
-          </div>
+          <CartItemAmount productAmount={this.props.product.amount} productName={this.props.product.name}/>
           <img className="cart-item__preview__image" src={this.props.product.gallery[0]} 
           alt={this.props.product.name} />
         </div>

@@ -103,7 +103,13 @@ class ItemPage extends React.Component<ItemPageProps & RouteComponentProps<any>,
           <h2 className="item-page__info__title__brand">{this.state.product.brand}</h2>
           <h2 className="item-page__info__title__name">{this.state.product.name}</h2>
         </div>
-          {(this.state.product.attributes.length === 0) ? <p className="item-page__info__attributes__name">Only one exemplar.</p> : this.state.product.attributes.map((i) => <Attributes key={i.name} attributes={i} setAttribute={setAttribute}/>)}
+          {(this.state.product.attributes.length === 0) ? <p className="item-page__info__attributes__name">Only one exemplar.</p> : 
+          this.state.product.attributes.map((i) => 
+          <Attributes 
+          key={i.name} 
+          attributes={i} 
+          setAttribute={setAttribute}
+          />)}
           
           <h3 className="item-page__info__price">Price: {this.state.price.currency.symbol + '' + 
           Math.trunc(+this.state.price.amount)}</h3>

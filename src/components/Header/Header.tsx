@@ -12,7 +12,7 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
       <header className="header">
         <Categories category={this.props.category} setCategory={this.props.setCategory}/>
         <Link to="/">
-          <img className="header__logo" src="./logo.png" alt="Store logo" />
+          <img className="header__logo" src="/logo.png" alt="Store logo" />
         </Link>
         <div className="header__actions">
           <CurrencyDropdown />
