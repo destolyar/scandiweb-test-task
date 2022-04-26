@@ -12,8 +12,11 @@ export class Attributes extends React.Component<AttributesProps, AttributesState
   render() {
     return(
       <div className="item-page__info__attributes">
-        <h2 className="item-page__info__attributes__name">{this.props.attributes.name}</h2>
-        <div className="item-page__info__attributes__items">{this.props.attributes.items.map((i, index) => 
+        <h2 className="item-page__info__attributes__name">
+          {this.props.attributes.name}
+        </h2>
+        <div className="item-page__info__attributes__items">
+          {this.props.attributes.items.map((i, index) => 
         <AttributesItem 
         key={i.value}
         index={index} 

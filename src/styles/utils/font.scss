@@ -174,3 +174,19 @@
     font-size: 14px;
   }
 }
+
+@mixin cart-item-attribute-title {
+  font-family: "Raleway";
+  font-style: "Light";
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 29px;
+  letter-spacing: 0px;
+  text-align: left;
+
+  color: $text-primary;
+
+  @include phones {
+    font-size: 14px;
+  }
+}

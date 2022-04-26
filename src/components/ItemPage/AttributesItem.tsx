@@ -13,14 +13,22 @@ export class AttributesItem extends React.Component<AttributesItemProps, Attribu
   }
 
   render() {
-    const id: string = this.props.attributeName + '' + this.props.attributeItemInfo.value
+    const inputId: string = this.props.attributeName + '' + this.props.attributeItemInfo.value
+
     return(
       <div className="item-page__info__attributes__items__item-container">
-        <input defaultChecked={(this.props.index === 0) ? true : false} style={{display: "none",}} type="radio" name={this.props.attributeName} value={this.props.attributeItemInfo.value} id={id}/>
-        <label className="item-page__info__attributes__items__item-container__item" style={(this.props.attributeType === 'swatch') ? {
+        <input defaultChecked={(this.props.index === 0) ? true : false} style={{display: "none",}} 
+        type="radio" 
+        name={this.props.attributeName} 
+        value={this.props.attributeItemInfo.value} 
+        id={inputId}/>
+        
+        <label className="item-page__info__attributes__items__item-container__item" 
+        style={(this.props.attributeType === 'swatch') ? {
           width: '30px',
           height: '30px',
-          backgroundColor: this.props.attributeItemInfo.value} : {}} key={this.props.attributeItemInfo.value} htmlFor={id} onClick={() => {
+          backgroundColor: this.props.attributeItemInfo.value} : {}} key={this.props.attributeItemInfo.value} 
+          htmlFor={inputId} onClick={() => {
           this.props.setAttribute({
             name: this.props.attributeName,
             type: this.props.attributeType,
