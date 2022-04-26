@@ -20,6 +20,17 @@ export class CurrencyProvider extends React.Component<any, any> {
     this.changeCurrency = this.changeCurrency.bind(this)
   }
 
+  componentDidMount() {
+    const currency  = JSON.parse(localStorage.getItem("Currency") || "")
+    this.setState({
+      currency: currency
+    })
+  }
+
+  componentDidUpdate() {
+    localStorage.setItem("Currency", JSON.stringify(this.state.currency))
+  }
+
   changeCurrency(symbol: string, label: string) {
     this.setState({currency: {
       label: label,

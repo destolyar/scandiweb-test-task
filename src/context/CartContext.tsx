@@ -16,6 +16,16 @@ export class CartProvider extends React.Component<{}, CartProviderState> {
     this.decreaseAmountOfProduct = this.decreaseAmountOfProduct.bind(this)
   }
 
+  componentDidMount() {
+    this.setState({
+      cartProducts: JSON.parse(localStorage.getItem("CartProducts") || '{}')
+    })
+  }
+
+  componentDidUpdate() {
+    localStorage.setItem("CartProducts", JSON.stringify(this.state.cartProducts))
+  }
+
   //Checking products what adding in cart on duplicates
   appendProduct(product: any) {
     const repeatedProducts = this.state.cartProducts.filter((i: {name: string}) => {

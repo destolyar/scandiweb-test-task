@@ -16,9 +16,13 @@ export class CartPreviewTotalAmount extends React.Component
 
   //If products more then one, each product amount * product price, after that summing and show.
   //If we have'nt products in cart, totalAmount = 0
+
   componentDidUpdate() {
     const {currency} = this.context
-    if((this.props.products.length > 0) && (this.state.productsAmount !== this.props.products.map((product) => product.amount).reduce((previosValue, currentValue) => previosValue + currentValue, 0))) {
+    if((this.props.products.length > 0) && (this.state.productsAmount !== this.props.products
+      .map((product) => product.amount)
+      .reduce((previosValue, currentValue) => previosValue + currentValue, 0))) {
+      
       const totalAmount: number[] = this.props.products.map((product => product.amount * product.prices.filter((price) => 
       price.currency.symbol === currency.symbol)[0].amount))
   
@@ -29,7 +33,18 @@ export class CartPreviewTotalAmount extends React.Component
       })
     }
 
-    if(this.props.products.length === 0) {
+    if(this.state.productsAmount === 1 && this.state.totalAmount === 0) {
+      const totalAmount: number[] = this.props.products.map((product => product.amount * product.prices.filter((price) => 
+      price.currency.symbol === currency.symbol)[0].amount))
+  
+      this.setState({
+        totalAmount: totalAmount.reduce((previosPrice, currentPrice) => previosPrice + currentPrice, 0),
+        currentCurrency: currency.symbol,
+        productsAmount: this.props.products.map((product) => product.amount).reduce((previosValue, currentValue) => previosValue + currentValue, 0)
+      })
+    }
+
+    if(this.props.products.length === 0 && this.state.totalAmount !== 0) {
       this.setState({totalAmount: 0})
     }
   }
