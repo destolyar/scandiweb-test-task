@@ -17,9 +17,12 @@ export class CartProvider extends React.Component<{}, CartProviderState> {
   }
 
   componentDidMount() {
-    this.setState({
-      cartProducts: JSON.parse(localStorage.getItem("CartProducts") || '{}')
-    })
+    const cartProducts = localStorage.getItem("CartProducts")
+    if(cartProducts) {
+      this.setState({
+        cartProducts: JSON.parse(cartProducts)
+      })
+    }
   }
 
   componentDidUpdate() {
@@ -38,6 +41,10 @@ export class CartProvider extends React.Component<{}, CartProviderState> {
     }
   }
   
+  changeProductAttributes(currentProduct: any) {
+    
+  }
+
   //Increasing amount of product by one
   increaseAmountOfProduct(productName: string) {
     let updatedProduct: ContextCartProduct = this.state.cartProducts.filter((i) => i.name === productName)[0]

@@ -3,6 +3,7 @@ import { CurrencyContext } from "../../context/CurrencyContext";
 import { CartItemProps, CartItemState } from "../../entites/interfaces/components/cart-item";
 import '../../styles/components/cart-item.scss';
 import { CartItemAmount } from "./CartItemAmount";
+import { CartItemAttributes } from "./CartItemAttributes/CartItemAttributes";
 
 export class CartItem extends React.Component<CartItemProps, CartItemState> {
   state = {
@@ -53,7 +54,9 @@ export class CartItem extends React.Component<CartItemProps, CartItemState> {
           <h3 className="cart-item__info__name">{this.props.product.name}</h3>
           <h3 className="cart-item__info__price">{this.state.price.currency.symbol + '' + this.state.price.amount}</h3>
           <div className="cart-item__info__attributes">
-
+            {this.props.product.attributes.map((productAttributes => <CartItemAttributes 
+            productAttributes={productAttributes} 
+            pickedAttribute={this.props.product.pickedAttributes.filter((attributeItem) => attributeItem.name === productAttributes.name)[0].pickedValue}/>))}
           </div>
         </div>
         <div className="cart-item__preview">

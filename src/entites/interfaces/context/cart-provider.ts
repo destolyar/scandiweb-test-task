@@ -15,18 +15,18 @@ export interface ContextCartProduct {
   prices: Price[]
 }
 
-interface Attributes {
+export interface Attributes {
   name: string,
   type: string,
-  item: AttributesItem[]
+  items: AttributesItem[]
 }
 
-interface AttributesItem {
+export interface AttributesItem {
   displayValue: string,
   value: string
 }
 
-interface PickedAttributes {
+export interface PickedAttributes {
   name: string,
   type: string,
   pickedValue: string

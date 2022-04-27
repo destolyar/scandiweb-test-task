@@ -21,10 +21,12 @@ export class CurrencyProvider extends React.Component<any, any> {
   }
 
   componentDidMount() {
-    const currency  = JSON.parse(localStorage.getItem("Currency") || "")
-    this.setState({
-      currency: currency
-    })
+    const currency  = localStorage.getItem("Currency")
+    if(currency) {
+      this.setState({
+        currency: JSON.parse(currency)
+      })
+    }
   }
 
   componentDidUpdate() {

@@ -1,10 +1,11 @@
+import { Attributes } from "../context/cart-provider"
 import { attributeItem, CurrencyInfo } from "../data/products"
 import { AttributesState } from "./attributes"
 
 export interface CartItemProps {
   product: {
     amount: number,
-    attributes: attributeItem[],
+    attributes: Attributes[],
     brand: string,
     name: string,
     pickedAttributes: AttributesState[],

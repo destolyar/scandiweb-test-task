@@ -1,7 +1,6 @@
 import React from "react";
 import { CurrencyContext } from "../../context/CurrencyContext";
 import { CartPreviewTotalAmountProps, CartPreviewTotalAmountState } from "../../entites/interfaces/components/cart-preview-total-amount";
-import { Price } from "../../entites/interfaces/context/cart-provider";
 
 export class CartPreviewTotalAmount extends React.Component
 <CartPreviewTotalAmountProps, CartPreviewTotalAmountState> {
@@ -11,7 +10,6 @@ export class CartPreviewTotalAmount extends React.Component
     totalAmount: 0,
     productsAmount: 0,
     currentCurrency: '$'
-
   }
 
   //If products more then one, each product amount * product price, after that summing and show.
