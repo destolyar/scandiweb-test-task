@@ -55,8 +55,14 @@ export class CartItem extends React.Component<CartItemProps, CartItemState> {
           <h3 className="cart-item__info__price">{this.state.price.currency.symbol + '' + this.state.price.amount}</h3>
           <div className="cart-item__info__attributes">
             {this.props.product.attributes.map((productAttributes => <CartItemAttributes 
+            key={productAttributes.name}
             productAttributes={productAttributes} 
-            pickedAttribute={this.props.product.pickedAttributes.filter((attributeItem) => attributeItem.name === productAttributes.name)[0].pickedValue}/>))}
+            pickedAttribute={this.props.product.pickedAttributes.filter((attributeItem) => 
+              attributeItem.name === productAttributes.name)[0].pickedValue}
+            productName={this.props.product.name}
+            isPreviewCart={true}
+            fullProductInfo={this.props.product}
+            />))}
           </div>
         </div>
         <div className="cart-item__preview">

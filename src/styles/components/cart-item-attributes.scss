@@ -1,0 +1,40 @@
+@import '../utils/utils.scss';
+
+.cart-preview-attributes {
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+    @include cart-item-attribute-title;
+  }
+
+  &__items {
+    display: flex;
+    
+    
+    &__item-container {
+      width: 30px;
+      height: 30px;
+      margin: 5px;
+      &__item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 35px;
+        height: 35px;
+        font-size: 10px;
+        border: 1px solid grey;
+
+        &:hover {
+          @include default-hover;
+        }
+      }
+    }
+    
+    &__item-container input[type="radio"]:checked + label {
+      color: $button-text-secondary;
+      background-color: #1D1F22;
+      transform: scale(1.2);
+    }
+  }
+}

@@ -13,6 +13,7 @@ export interface ContextCartProduct {
   name: string,
   brand: string,
   prices: Price[]
+  gallery: string[]
 }
 
 export interface Attributes {
@@ -22,6 +23,7 @@ export interface Attributes {
 }
 
 export interface AttributesItem {
+  __typename: "Attribute",
   displayValue: string,
   value: string
 }
