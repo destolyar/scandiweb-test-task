@@ -9,6 +9,14 @@
   background-color: $button-add-to-cart-background;
 }
 
+@mixin order-button {
+  height: 50px;
+  width: 300px;
+  border: 0;
+  color: $button-text-secondary;
+  background-color: $button-add-to-cart-background;
+}
+
 @mixin cart-preview-view-bag-button {
   padding: 10px 20px;
   @include button-text;

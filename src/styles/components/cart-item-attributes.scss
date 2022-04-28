@@ -10,8 +10,7 @@
 
   &__items {
     display: flex;
-    
-    
+
     &__item-container {
       width: 30px;
       height: 30px;
@@ -35,6 +34,44 @@
       color: $button-text-secondary;
       background-color: #1D1F22;
       transform: scale(1.2);
+    }
+  }
+}
+
+.cart-attributes {
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+    @include item-attributes-title;
+    margin-top: 20px;
+  }
+
+  &__items {
+    display: flex;
+    margin-top: 20px;
+
+    &__item-container {
+      &__item {
+        width: 65px;
+        height: 45px;
+        margin-right: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $button-text-primary;
+        border: 1px solid #1D1F22;
+
+        &:hover {
+          @include default-hover;
+        }
+      }
+    }
+
+    &__item-container input[type="radio"]:checked + label {
+      color: $button-text-secondary;
+      background-color: #1D1F22;
+      transform: scale(1.05);
     }
   }
 }

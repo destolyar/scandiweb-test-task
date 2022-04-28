@@ -1,0 +1,68 @@
+@import '../utils/utils.scss';
+
+.cart-item__finally-cart-preview {
+  display: flex;
+  height: 280px;
+  width: 300px;
+
+  &__amount {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-right: 10px;
+
+    &__change-amount {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 45px;
+      height: 45px;
+      font-size: 25px;
+      border: 1px solid rgba(29, 31, 34, 1);
+
+      &:hover {
+        @include default-hover;
+      }
+    }
+
+    &__value {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 45px;
+      height: 45px;
+      font-size: 25px;
+    }
+  }
+
+  &__gallery {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    &__image {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    &__controls {
+      position: absolute;
+      display: flex;
+      top: 0;
+      right: 0;
+
+      &__next-picture, &__previos-picture {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30px;
+        height: 30px;
+        color: #FFFFFF;
+        background-color: rgba(0, 0, 0, 0.73);
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

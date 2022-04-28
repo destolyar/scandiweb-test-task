@@ -1,9 +1,9 @@
-import { Attributes, ContextCartProduct } from "../context/cart-provider"
-import { attributeItem, CurrencyInfo } from "../data/products"
-import { AttributesState } from "./attributes"
+import { ContextCartProduct } from "../context/cart-provider"
+import { CurrencyInfo } from "../data/products"
 
 export interface CartItemProps {
   product: ContextCartProduct
+  isPreviewCart: boolean
 }
 
 export interface CartItemState {

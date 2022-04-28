@@ -22,11 +22,13 @@ export class CartItemAttributesItem extends React.Component
 
     const {changeAttribute} = this.context
 
-    const inputId: string = (attributeName + value + "preview").split(' ').join('')
+    const inputId: string = (attributeName + this.props.isPreviewCart.toString() + value + "preview").split(' ').join('')
+    const name: string = (attributeName + this.props.isPreviewCart.toString() + productName + 'privew')
+    
     return(
     <div className={`${cartClassName}`}>
       <input defaultChecked={isChecked} 
-      name={attributeName + productName + 'privew'}
+      name={name}
       value={value}
       id={inputId}
       type="radio" 
@@ -36,7 +38,12 @@ export class CartItemAttributesItem extends React.Component
       <label 
       className={`${cartClassName}__item`} 
       htmlFor={inputId}
-      style={(attributeType === 'swatch') ? {
+      style={((attributeType === 'swatch') && (!this.props.isPreviewCart)) ? {
+        width: "30px",
+        height: "30px",
+        backgroundColor: value,
+        border: "0px solid transparent",
+      } : (attributeType === 'swatch') ? {
         width: "16px",
         height: "16px",
         backgroundColor: value,

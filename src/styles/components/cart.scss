@@ -1,3 +1,43 @@
+@import '../utils/utils.scss';
+
 .cart {
-  
+  display: flex;
+  flex-direction: column;
+  padding: 60px 5px 0 5px;
+
+  &__title {
+    @include page-title;
+    margin-bottom: 60px;
+  }
+
+  &__order-info {
+    padding-top: 25px;
+    border-top: 1px solid #E5E5E5;
+    
+    &__item {
+      @include card-title;
+
+      &__value {
+        @include card-bold-title;
+      }
+    }
+
+    &__order-button {
+      @include order-button;
+      margin-top: 25px;
+
+      &:hover {
+        @include default-hover;
+      }
+    }
+  }
+
+  &__order-notification {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    @include page-title;
+  }
 }

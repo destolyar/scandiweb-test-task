@@ -8,7 +8,8 @@ export interface CartItemAttributesItemProps {
   attributeType: string,
   cartClassName: string,
   isChecked: boolean,
-  fullProductInfo: ContextCartProduct
+  fullProductInfo: ContextCartProduct,
+  isPreviewCart: boolean
 }
 
 export interface CartItemAttributesItemState {

@@ -24,6 +24,7 @@ export class CartItemAttributes extends React.Component
           productName={this.props.productName}
           cartClassName={`${cartClassName}__items__item-container`}
           fullProductInfo={this.props.fullProductInfo}
+          isPreviewCart={this.props.isPreviewCart}
           />)}
         </div>
       </div>

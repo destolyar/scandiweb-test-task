@@ -1,6 +1,6 @@
 export interface CartItemAmountProps {
   productName: string,
-  productAmount: number
+  productAmount: number,
 }
 
 export interface CartItemAmountState {

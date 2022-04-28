@@ -21,7 +21,7 @@ export class CartPreview extends React.Component<CartPreviewProps, CartPreviewSt
             <div className="header__actions__cart-preview__window__content-container">
               <h1 className="header__actions__cart-preview__window__content-container__title">My bag, {cartProducts.length} items</h1>
               <div className="header__actions__cart-preview__window__content-container__items">
-                {cartProducts.map((i: any) => <CartItem key={i.name} product={i}/>)}
+                {cartProducts.map((i: any) => <CartItem key={i.name} product={i} isPreviewCart/>)}
               </div>
               <div className="header__actions__cart-preview__window__content-container__total-amount">
                 <h3 className="header__actions__cart-preview__window__content-container__total-amount__title">Total</h3>
