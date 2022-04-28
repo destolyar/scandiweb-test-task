@@ -137,6 +137,22 @@
   }
 }
 
+@mixin card-bold-title {
+  font-family: "Raleway";
+  font-style: "Medium";
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 29px;
+  letter-spacing: 0px;
+  text-align: left;
+
+  color: $text-primary;
+
+  @include phones {
+    font-size: 14px;
+  }
+}
+
 @mixin card-price {
   font-family: "Raleway";
   font-style: "Medium";
@@ -177,9 +193,9 @@
 
 @mixin cart-item-attribute-title {
   font-family: "Raleway";
-  font-style: "Light";
+  font-style: "Medium";
   font-size: 15px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 29px;
   letter-spacing: 0px;
   text-align: left;

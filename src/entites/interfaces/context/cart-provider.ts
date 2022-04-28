@@ -13,20 +13,22 @@ export interface ContextCartProduct {
   name: string,
   brand: string,
   prices: Price[]
+  gallery: string[]
 }
 
-interface Attributes {
+export interface Attributes {
   name: string,
   type: string,
-  item: AttributesItem[]
+  items: AttributesItem[]
 }
 
-interface AttributesItem {
+export interface AttributesItem {
+  __typename: "Attribute",
   displayValue: string,
   value: string
 }
 
-interface PickedAttributes {
+export interface PickedAttributes {
   name: string,
   type: string,
   pickedValue: string

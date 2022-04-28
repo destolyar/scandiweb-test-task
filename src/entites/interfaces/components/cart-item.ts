@@ -1,16 +1,9 @@
-import { attributeItem, CurrencyInfo } from "../data/products"
-import { AttributesState } from "./attributes"
+import { ContextCartProduct } from "../context/cart-provider"
+import { CurrencyInfo } from "../data/products"
 
 export interface CartItemProps {
-  product: {
-    amount: number,
-    attributes: attributeItem[],
-    brand: string,
-    name: string,
-    pickedAttributes: AttributesState[],
-    prices: CurrencyInfo[],
-    gallery: string[]
-  }
+  product: ContextCartProduct
+  isPreviewCart: boolean
 }
 
 export interface CartItemState {

@@ -8,13 +8,17 @@ import { ErrorLink } from "./entites/interfaces/components/ErrorLink";
 import ItemPage from "./components/ItemPage/ItemPage";
 import './styles/app.scss'
 import { AppProps, AppState } from "./entites/interfaces/components/app";
+import { CurrencyContext } from "./context/CurrencyContext";
 
 export class App extends React.Component<AppProps, AppState> {
   state = {
     category: "all"
   }
 
+  static contextType = CurrencyContext;
+
   render() {
+    const {currency} = this.context
     return (
       <div className="App">
         <Header
@@ -29,7 +33,9 @@ export class App extends React.Component<AppProps, AppState> {
           <Route exact path="/">
             <Catalog category={this.state.category}/>
           </Route>
-          <Route path="/cart" component={Cart}/>
+          <Route path="/cart">
+            <Cart currency={currency}/>
+          </Route>
           <Route path="/product/:id">
             <ItemPage/>
           </Route>

@@ -14,6 +14,21 @@ export class CartProvider extends React.Component<{}, CartProviderState> {
     this.appendProduct = this.appendProduct.bind(this)
     this.increaseAmountOfProduct = this.increaseAmountOfProduct.bind(this)
     this.decreaseAmountOfProduct = this.decreaseAmountOfProduct.bind(this)
+    this.changeAttribute = this.changeAttribute.bind(this)
+    this.clearCart = this.clearCart.bind(this)
+  }
+
+  componentDidMount() {
+    const cartProducts = localStorage.getItem("CartProducts")
+    if(cartProducts) {
+      this.setState({
+        cartProducts: JSON.parse(cartProducts)
+      })
+    }
+  }
+
+  componentDidUpdate() {
+    localStorage.setItem("CartProducts", JSON.stringify(this.state.cartProducts))
   }
 
   //Checking products what adding in cart on duplicates
@@ -53,6 +68,18 @@ export class CartProvider extends React.Component<{}, CartProviderState> {
       }))
     }
   }
+  
+  clearCart() {
+    this.setState({
+      cartProducts: []
+    })
+  }
+
+  changeAttribute(updatedProduct: ContextCartProduct) {
+    this.setState((state) => ({
+      cartProducts: state.cartProducts.map((product) => (product.name === updatedProduct.name) ? updatedProduct : product)
+    }))
+  }
 
   render() {
     const {cartProducts} = this.state;
@@ -61,6 +88,8 @@ export class CartProvider extends React.Component<{}, CartProviderState> {
         appendProduct: this.appendProduct,
         increaseAmountOfProduct: this.increaseAmountOfProduct,
         decreaseAmountOfProduct: this.decreaseAmountOfProduct,
+        changeAttribute: this.changeAttribute,
+        clearCart: this.clearCart,
         cartProducts: cartProducts}}>
         {this.props.children}
       </CartContext.Provider>
