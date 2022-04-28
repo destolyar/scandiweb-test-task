@@ -5,6 +5,7 @@ import CatalogItem from './CatalogItem'
 import { getAllProducts } from "../../app/requests";
 import { Category, CurrencyInfo, ProductInfo } from "../../entites/interfaces/data/products";
 import { CurrencyContext } from "../../context/CurrencyContext";
+import { firstLetterToUpperCase } from "../../app/utils";
 
 
 export class Catalog extends React.Component<CatalogProps, CatalogState> {
@@ -24,7 +25,7 @@ export class Catalog extends React.Component<CatalogProps, CatalogState> {
     const {currency} = this.context
     return(
       <main className="catalog">
-        <h1 className="catalog__title">Category: {this.props.category}</h1>
+        <h1 className="catalog__title">Category: {firstLetterToUpperCase(this.props.category)}</h1>
         <section className="catalog__products">
         {this.state.allProducts.map((category: Category) => {
           if(category.name === this.props.category) {

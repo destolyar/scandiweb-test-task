@@ -17,8 +17,8 @@ export class Categories extends React.Component<CategoriesProps, CategoriesState
   render() {
     return(
       <div className="header__categories">
-        {this.state.categories.map((i: {name: string}) => {
-          return <CategoriesItem key={i.name} category={i.name} setCategory={this.props.setCategory}/>
+        {this.state.categories.map((i: {name: string}, index) => {
+          return <CategoriesItem key={i.name} category={i.name} setCategory={this.props.setCategory} index={index}/>
         })}
       </div>
     )

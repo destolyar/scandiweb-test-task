@@ -8,7 +8,7 @@ export class CategoriesItem extends React.Component<CategoriesItemProps, Categor
         <div className="header__categories__item-container">
           <input className="header__categories__item-container__input" 
           value={this.props.category} type="radio" name="categories" id={this.props.category + "-category"} 
-          onClick={(element) => this.props.setCategory(element.currentTarget.value)}
+          defaultChecked={(this.props.index === 0) ? true : false} onClick={(element) => this.props.setCategory(element.currentTarget.value)}
           />
             <label className="header__categories__item-container__label" 
             htmlFor={this.props.category + "-category"}
