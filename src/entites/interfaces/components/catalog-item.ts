@@ -1,3 +1,5 @@
+import { ContextCartProduct } from "../context/cart-provider"
+
 export interface CatalogItemProps {
     id: string,
     inStock?: boolean,
@@ -8,6 +10,7 @@ export interface CatalogItemProps {
     },
     gallery: string[]
     amount: string
+    fullProductInfo: any
 }
 
 

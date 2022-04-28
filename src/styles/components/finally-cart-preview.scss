@@ -63,6 +63,11 @@
           cursor: pointer;
         }
       }
+
+      &__previos-picture {
+        margin-right: 10px;
+        transform: rotate(180deg);
+      }
     }
   }
 }

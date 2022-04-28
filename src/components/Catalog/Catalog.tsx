@@ -39,6 +39,7 @@ export class Catalog extends React.Component<CatalogProps, CatalogState> {
                 symbol: currency.symbol
               }}
               amount={product.prices.filter((i: CurrencyInfo) => i.currency.label === currency.label)[0].amount}
+              fullProductInfo={product}
               ></CatalogItem>
             })
           }})}

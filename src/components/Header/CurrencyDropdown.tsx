@@ -7,7 +7,8 @@ import { CurrencyContext } from "../../context/CurrencyContext";
 
 export class CurrencyDropdown extends React.Component<CurrencyDropdownProps, CurrencyDropdownState> {
   state: Readonly<CurrencyDropdownState> = {
-    currencies: []
+    currencies: [],
+    dropdownDisplay: false
   };
   componentDidMount() {
     client.query({
@@ -34,9 +35,12 @@ export class CurrencyDropdown extends React.Component<CurrencyDropdownProps, Cur
         </div>
 
         <div className="currency-dropdown__container">
-          <input type="checkbox" id="currencies-checkbox" style={{display: 'none'}}/>
-          <label className="currency-dropdown__container__checkbox" htmlFor="currencies-checkbox">&#10095;</label>
-          <div className="currency-dropdown__container__currencies" id="currency-container">
+          <span className="currency-dropdown__container__checkbox" onClick={() => {
+            this.setState((state) =>({
+              dropdownDisplay: !state.dropdownDisplay
+            }))
+          }}>&#10095;</span>
+          <div className="currency-dropdown__container__currencies" id="currency-container" style={(this.state.dropdownDisplay) ? {maxHeight: "500px"} : {maxHeight: "0"}}>
             {this.state.currencies.map((i) => {
               return <option key={i.symbol + '' + i.label} className="currency-dropdown__container__currencies__item" onClick={() => {
                 changeCurrency(i.symbol, i.label)
