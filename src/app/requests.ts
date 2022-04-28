@@ -26,13 +26,20 @@ export const getAllProducts = () => {
         categories {
           name
           products {
-            id
             name
             inStock
             gallery
             description
             category
             brand
+            attributes {
+              name
+              type
+              items {
+                displayValue
+                value
+              }
+            }
             prices {
               currency{
                 label
